@@ -1,3 +1,5 @@
+from typing import Union
+
 from restaurant.interactors.storages.dtos import AddUserDetailsDTO, UserDetailsDTO
 from restaurant.interactors.storages.user_storages_interface import UserStorageInterface
 
@@ -64,3 +66,17 @@ class UserStorageImplementation(UserStorageInterface):
             date_joined=str(user_details.date_joined.replace(tzinfo=None)),
         )
         return user_dto
+
+    def authenticate_user(self, user_dto) -> (Union[str, None], bool):
+        from restaurant.models import User
+
+        user = User.objects.get(username=user_dto.username)
+        is_authenticated = user.check_password(raw_password=user_dto.password)
+        user_id = str(user.id)
+
+        # set active status to True
+        if is_authenticated:
+            user.is_active = True
+        user.save()
+
+        return user_id, is_authenticated

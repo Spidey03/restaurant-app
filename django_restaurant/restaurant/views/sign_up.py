@@ -12,7 +12,7 @@ def get_user_details_dto(data):
         username=data.get('username'),
         first_name=data.get('first_name'),
         mobile_number=data.get('mobile_number'),
-        last_name=data.get('last_name'),
+        last_name=data.get('last_name', ''),
         password=data.get('password', ''),
         is_staff=data.get('is_staff', False),
         is_active=False,

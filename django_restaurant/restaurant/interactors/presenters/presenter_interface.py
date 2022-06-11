@@ -18,3 +18,15 @@ class PresenterInterface(abc.ABC):
     @abc.abstractmethod
     def weak_password_exception_response(self):
         pass
+
+    @abc.abstractmethod
+    def username_not_found_response(self, username):
+        pass
+
+    @abc.abstractmethod
+    def login_failed_response(self):
+        pass
+
+    @abc.abstractmethod
+    def login_successful_response(self, auth_token_dto):
+        pass

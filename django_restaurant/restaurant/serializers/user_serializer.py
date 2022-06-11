@@ -4,6 +4,7 @@ from restaurant.models import User
 
 
 class UserSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=100, allow_null=False)
     first_name = serializers.CharField(max_length=100, allow_null=False)
     mobile_number = serializers.CharField(max_length=12, allow_null=False)
 
