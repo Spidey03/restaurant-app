@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5ym^j^al3(f4qssluis_4!h^72!f+_$s8c@=3a%6u_xa-ft2dh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'restaurant'
 ]
 
-THIRD_PARTY_APPS = ['restaurant', 'oauth2_provider', 'corsheaders']
+THIRD_PARTY_APPS = ['oauth2_provider', 'corsheaders']
 INSTALLED_APPS += THIRD_PARTY_APPS
 
 MIDDLEWARE = [
@@ -134,7 +135,7 @@ AUTHENTICATION_BACKENDS = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-AUTH_USER_MODEL = 'market.User'
+AUTH_USER_MODEL = 'restaurant.User'
 
 DEFAULT_OAUTH_APPLICATION_NAME = 'restaurant'
 DEFAULT_OAUTH_CLIENT_ID = ''

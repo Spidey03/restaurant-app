@@ -1,9 +1,11 @@
 from django.db import models
 
+from restaurant.models import Item
+
 
 class Order(models.Model):
     id = models.UUIDField(primary_key=True)
-    items = models.ManyToManyField('item')
+    items = models.ManyToManyField(Item)
     is_paid = models.BooleanField(default=False)
     amount = models.FloatField()
 
@@ -13,7 +15,7 @@ class Order(models.Model):
 
 class Cart(models.Model):
     id = models.UUIDField(primary_key=True)
-    items = models.ManyToManyField('item')
+    items = models.ManyToManyField(Item)
 
     def __str__(self):
         return {self.id}
