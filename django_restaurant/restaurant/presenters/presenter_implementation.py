@@ -2,7 +2,7 @@ from typing import List
 
 from restaurant.constants.constants import StatusCode
 from restaurant.interactors.presenters.presenter_interface import PresenterInterface
-from restaurant.interactors.storages.dtos import UserDetailsDTO, ItemDTO
+from restaurant.interactors.storages.dtos import UserDetailsDTO, ItemDTO, OrderDTO
 
 
 class PresenterImplementation(PresenterInterface):
@@ -139,4 +139,51 @@ class PresenterImplementation(PresenterInterface):
             'response': response,
             'res_status': res_status,
             'status_code': http_status_code,
+        }
+
+    def order_not_found(self, order_id: str):
+        from restaurant.constants.exception_message import ORDER_NOT_FOUND
+
+        response = ORDER_NOT_FOUND[0].format(order_id)
+        res_status = ORDER_NOT_FOUND[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }
+
+    def user_dont_have_access(self):
+        from restaurant.constants.exception_message import USER_DONT_HAVE_ACCESS
+
+        response = USER_DONT_HAVE_ACCESS[0]
+        res_status = USER_DONT_HAVE_ACCESS[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }
+
+    def get_order_response(
+            self,
+            user_dto: UserDetailsDTO,
+            order_dto: OrderDTO,
+            item_dtos: List[ItemDTO]
+    ):
+        return {
+            "user_id": str(user_dto.id),
+            "first_name": user_dto.first_name,
+            "username": user_dto.username,
+            "order": {
+                "id": str(order_dto.id),
+                "amount": order_dto.amount,
+                "is_paid": order_dto.is_paid,
+                "items": [{
+                    "id": str(dto.id),
+                    "name": dto.name,
+                    "price": dto.price,
+                    "description": dto.description
+                } for dto in item_dtos]
+            }
         }

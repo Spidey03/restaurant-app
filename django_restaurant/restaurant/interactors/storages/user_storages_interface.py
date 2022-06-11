@@ -29,3 +29,7 @@ class UserStorageInterface(abc.ABC):
     @abc.abstractmethod
     def authenticate_user(self, user_dto) -> (Union[str, None], bool):
         pass
+
+    @abc.abstractmethod
+    def is_user_admin(self, user_id: str) -> bool:
+        pass

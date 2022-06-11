@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, List
 
 
 @dataclass
@@ -38,3 +38,19 @@ class ItemDTO:
     name: str
     price: float
     description: Optional[str] = ''
+
+
+@dataclass
+class TableOrderDTO:
+    id: str
+    table_id: str
+    user_id: str
+    order_id: str
+
+
+@dataclass
+class OrderDTO:
+    id: str
+    is_paid: bool
+    items: List[str]
+    amount: float = 0

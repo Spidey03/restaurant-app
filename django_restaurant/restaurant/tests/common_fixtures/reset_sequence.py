@@ -6,7 +6,7 @@ def reset():
 def reset_model_factories():
     from restaurant.tests.common_fixtures.model_factories import (
         UserModelFactory, ItemModelFactory, TableModelFactory,
-        RestaurantModelFactory, OrderModelFactory
+        RestaurantModelFactory, OrderModelFactory, TableOrderModelFactory
     )
 
     UserModelFactory.reset_sequence(0)
@@ -14,6 +14,7 @@ def reset_model_factories():
     RestaurantModelFactory.reset_sequence(0)
     TableModelFactory.reset_sequence(0)
     OrderModelFactory.reset_sequence(0)
+    TableOrderModelFactory.reset_sequence(0)
 
 
 def reset_dto_factories():
@@ -22,7 +23,9 @@ def reset_dto_factories():
         UserDetailsDTOFactory,
         AddUserDetailsDTOFactory,
         LoginUserDTOFactory,
-        ItemDTOFactory
+        ItemDTOFactory,
+        OrderDTOFactory,
+        TableOrderDTOFactory
     )
 
     UserDTOFactory.reset_sequence(0)
@@ -30,3 +33,5 @@ def reset_dto_factories():
     AddUserDetailsDTOFactory.reset_sequence(0, force=True)
     LoginUserDTOFactory.reset_sequence(0)
     ItemDTOFactory.reset_sequence(0)
+    TableOrderDTOFactory.reset_sequence(0)
+    OrderDTOFactory.reset_sequence(0)

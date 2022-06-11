@@ -1,5 +1,6 @@
 from restaurant.views.add_order import add_order
 from restaurant.views.get_menu import get_menu
+from restaurant.views.get_order import get_order
 from restaurant.views.sign_up import sign_up
 from restaurant.views.login import login
 
@@ -7,5 +8,6 @@ __all__ = [
     'sign_up',
     'login',
     'get_menu',
-    'add_order'
+    'add_order',
+    'get_order'
 ]

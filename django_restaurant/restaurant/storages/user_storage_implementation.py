@@ -80,3 +80,6 @@ class UserStorageImplementation(UserStorageInterface):
         user.save()
 
         return user_id, is_authenticated
+
+    def is_user_admin(self, user_id: str) -> bool:
+        pass

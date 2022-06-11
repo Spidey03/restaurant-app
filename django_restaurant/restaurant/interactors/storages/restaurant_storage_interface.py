@@ -1,7 +1,7 @@
 import abc
 from typing import List
 
-from restaurant.interactors.storages.dtos import ItemDTO
+from restaurant.interactors.storages.dtos import ItemDTO, TableOrderDTO, OrderDTO
 
 
 class RestaurantStorageInterface(abc.ABC):
@@ -26,4 +26,20 @@ class RestaurantStorageInterface(abc.ABC):
     def create_table_order(
             self, table_id: str, user_id: str, order_id: str
     ):
+        pass
+
+    @abc.abstractmethod
+    def get_table_order(self, order_id: str) -> TableOrderDTO:
+        pass
+
+    @abc.abstractmethod
+    def get_order(self, order_id: str) -> OrderDTO:
+        pass
+
+    @abc.abstractmethod
+    def get_items(self, item_ids):
+        pass
+
+    @abc.abstractmethod
+    def check_order_id_exist(self, order_id: str) -> bool:
         pass

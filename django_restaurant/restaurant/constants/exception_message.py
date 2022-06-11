@@ -51,3 +51,14 @@ NO_ITEMS_SELECTED = (
     "Please select atleast one item",
     'NO_ITEMS_SELECTED',
 )
+
+
+USER_DONT_HAVE_ACCESS = (
+    "User don't have access",
+    'USER_DONT_HAVE_ACCESS',
+)
+
+ORDER_NOT_FOUND = (
+    "Order not exist, {}",
+    "ORDER_NOT_FOUND"
+)
