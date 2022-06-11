@@ -10,7 +10,7 @@ class Order(models.Model):
     amount = models.FloatField()
 
     def __str__(self):
-        return {self.id}
+        return f"{str(self.id)}"
 
 
 class Cart(models.Model):
@@ -18,4 +18,4 @@ class Cart(models.Model):
     items = models.ManyToManyField(Item)
 
     def __str__(self):
-        return {self.id}
+        return {str(self.id)}

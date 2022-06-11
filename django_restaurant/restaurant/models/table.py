@@ -13,7 +13,7 @@ class Table(models.Model):
     )
 
     def __str__(self):
-        return {self.id}
+        return f"Table {self.id}"
 
 
 class TableCart(models.Model):
@@ -32,7 +32,7 @@ class TableCart(models.Model):
     )
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class TableOrder(models.Model):
@@ -51,4 +51,4 @@ class TableOrder(models.Model):
     )
 
     def __str__(self):
-        return self.id
+        return str(self.id)

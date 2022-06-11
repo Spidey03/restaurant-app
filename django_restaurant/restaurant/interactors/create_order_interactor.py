@@ -1,6 +1,7 @@
 from typing import List
 
-from restaurant.exceptions.exceptions import TableNotFoundException, ItemIdNotFoundException
+from restaurant.exceptions.exceptions import TableNotFoundException, ItemIdNotFoundException, \
+    NoItemsHaveSelectedException
 from restaurant.interactors.presenters.presenter_interface import PresenterInterface
 from restaurant.interactors.storages.restaurant_storage_interface import RestaurantStorageInterface
 
@@ -20,13 +21,17 @@ class CreateOrderInteractor:
             order_id = self._create_order(
                 user_id=user_id, table_id=table_id, items=items
             )
-            presenter.order_created_successfully(order_id=order_id)
+            return presenter.order_created_successfully(order_id=order_id)
         except TableNotFoundException:
-            presenter.table_not_found_response(table_id=table_id)
+            return presenter.table_not_found_response(table_id=table_id)
         except ItemIdNotFoundException as item_exc:
-            presenter.items_not_found(item_ids=item_exc.item_ids)
+            return presenter.items_not_found(item_ids=item_exc.item_ids)
+        except NoItemsHaveSelectedException:
+            return presenter.no_items_selected_response()
 
     def _create_order(self, user_id: str, table_id: str, items: List[str]):
+        if not items:
+            raise NoItemsHaveSelectedException()
         if not self.restaurant_storage.validate_table_id(table_id=table_id):
             raise TableNotFoundException()
         valid_item_dtos = self.restaurant_storage.validate_item_objs(item_ids=items)

@@ -128,3 +128,15 @@ class PresenterImplementation(PresenterInterface):
             'res_status': res_status,
             'status_code': http_status_code,
         }
+
+    def no_items_selected_response(self):
+        from restaurant.constants.exception_message import NO_ITEMS_SELECTED
+
+        response = NO_ITEMS_SELECTED[0]
+        res_status = NO_ITEMS_SELECTED[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }

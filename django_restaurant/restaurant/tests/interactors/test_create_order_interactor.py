@@ -45,6 +45,23 @@ class TestCreateOrderInteractor:
         from restaurant.tests.common_fixtures.factories import ItemDTOFactory
         return ItemDTOFactory.create_batch(size=2)
 
+    def test_when_items_not_selected(
+            self, restaurant_storage, presenter, interactor
+    ):
+        # Arrange
+        presenter.no_items_selected_response.return_value = Mock()
+
+        # Act
+        interactor.create_order_wrapper(
+            user_id=USER_ID,
+            table_id=TABLE_ID,
+            items=[],
+            presenter=presenter
+        )
+
+        # Assert
+        presenter.no_items_selected_response.assert_called_once()
+
     def test_when_table_not_exist(
             self, restaurant_storage, presenter, interactor
     ):

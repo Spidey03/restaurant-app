@@ -6,4 +6,4 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.id
+        return str(self.id)

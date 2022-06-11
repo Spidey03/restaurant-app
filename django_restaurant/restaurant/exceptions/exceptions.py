@@ -39,3 +39,6 @@ class TableNotFoundException(Exception):
 class ItemIdNotFoundException(Exception):
     def __init__(self, item_ids: List[str]):
         self.item_ids = item_ids
+
+class NoItemsHaveSelectedException(Exception):
+    pass

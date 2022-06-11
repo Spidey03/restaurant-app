@@ -46,3 +46,8 @@ SELECTED_ITEMS_NOT_FOUND = (
     "Items not found: {}",
     'SELECTED_ITEMS_NOT_FOUND',
 )
+
+NO_ITEMS_SELECTED = (
+    "Please select atleast one item",
+    'NO_ITEMS_SELECTED',
+)
