@@ -10,8 +10,8 @@ from restaurant.tests.common_fixtures.reset_sequence import reset
 USER_ID = 'd32b2f96-93f5-4e2f-842d-d590783dc001'
 TABLE_ID = 'e32b2f96-93f5-4e2f-842d-d590783dc001'
 ITEM_IDS = [
-    'f32b2f96-93f5-4e2f-842d-d590783dc001',
-    'f32b2f96-93f5-4e2f-842d-d590783dc002'
+    'f32b2f96-93f5-4e2f-842d-d590783dc000',
+    'f32b2f96-93f5-4e2f-842d-d590783dc001'
 ]
 
 
@@ -39,6 +39,12 @@ class TestCreateOrderInteractor:
         presenter = create_autospec(PresenterInterface)
         return presenter
 
+    @pytest.fixture
+    def item_dtos(self):
+        reset()
+        from restaurant.tests.common_fixtures.factories import ItemDTOFactory
+        return ItemDTOFactory.create_batch(size=2)
+
     def test_when_table_not_exist(
             self, restaurant_storage, presenter, interactor
     ):
@@ -61,11 +67,11 @@ class TestCreateOrderInteractor:
         )
 
     def test_when_items_not_exist(
-            self, restaurant_storage, presenter, interactor
+            self, restaurant_storage, presenter, interactor, item_dtos
     ):
         # Arrange
         restaurant_storage.validate_table_id.return_value = True
-        restaurant_storage.validate_item_ids.return_value = ITEM_IDS[:1]
+        restaurant_storage.validate_item_objs.return_value = item_dtos
         presenter.items_not_found.return_value = Mock()
 
         # Act
@@ -78,19 +84,21 @@ class TestCreateOrderInteractor:
 
         # Assert
         restaurant_storage.validate_table_id.assert_called_once_with(table_id=TABLE_ID)
-        restaurant_storage.validate_item_ids.assert_called_once_with(item_ids=ITEM_IDS)
-        presenter.items_not_found.assert_called_once_with(
-            item_ids=ITEM_IDS[1:]
-        )
+        restaurant_storage.validate_item_objs.assert_called_once_with(item_ids=ITEM_IDS)
+        presenter.items_not_found.assert_called_once()
 
     def test_when_create_order_successful(
-            self, restaurant_storage, presenter, interactor
+            self, restaurant_storage, presenter, interactor, item_dtos
     ):
         # Arrange
         ORDER_ID = 'g32b2f96-93f5-4e2f-842d-d590783dc001'
+        item_ids = [
+            'd32b2f96-93f5-4e2f-842d-d590783dc000',
+            'd32b2f96-93f5-4e2f-842d-d590783dc001'
+        ]
 
         restaurant_storage.validate_table_id.return_value = True
-        restaurant_storage.validate_item_ids.return_value = ITEM_IDS
+        restaurant_storage.validate_item_objs.return_value = item_dtos
         restaurant_storage.create_order.return_value = ORDER_ID
         restaurant_storage.create_table_order.return_value = Mock()
         presenter.order_created_successfully.return_value = Mock()
@@ -99,14 +107,14 @@ class TestCreateOrderInteractor:
         interactor.create_order_wrapper(
             user_id=USER_ID,
             table_id=TABLE_ID,
-            items=ITEM_IDS,
+            items=item_ids,
             presenter=presenter
         )
 
         # Assert
         restaurant_storage.validate_table_id.assert_called_once_with(table_id=TABLE_ID)
-        restaurant_storage.validate_item_ids.assert_called_once_with(item_ids=ITEM_IDS)
-        restaurant_storage.create_order.assert_called_once_with(item_ids=ITEM_IDS)
+        restaurant_storage.validate_item_objs.assert_called_once_with(item_ids=item_ids)
+        restaurant_storage.create_order.assert_called_once_with(item_ids=item_ids, amount=6000)
         restaurant_storage.create_table_order.assert_called_once_with(
             table_id=TABLE_ID, user_id=USER_ID, order_id=ORDER_ID
         )

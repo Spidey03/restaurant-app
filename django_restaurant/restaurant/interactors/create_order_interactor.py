@@ -29,11 +29,17 @@ class CreateOrderInteractor:
     def _create_order(self, user_id: str, table_id: str, items: List[str]):
         if not self.restaurant_storage.validate_table_id(table_id=table_id):
             raise TableNotFoundException()
-        valid_item_ids = self.restaurant_storage.validate_item_ids(item_ids=items)
+        valid_item_dtos = self.restaurant_storage.validate_item_objs(item_ids=items)
+        amount = 0
+        valid_item_ids = []
+        for dto in valid_item_dtos:
+            valid_item_ids.append(str(dto.id))
+            amount += dto.price
+        print(valid_item_ids)
         invalid_item_ids = list(set(items) - set(valid_item_ids))
         if invalid_item_ids:
             raise ItemIdNotFoundException(item_ids=invalid_item_ids)
-        order_id = self.restaurant_storage.create_order(item_ids=items)
+        order_id = self.restaurant_storage.create_order(item_ids=items, amount=amount)
         self.restaurant_storage.create_table_order(
             table_id=table_id, user_id=user_id, order_id=order_id
         )

@@ -11,15 +11,15 @@ class RestaurantStorageInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def validate_table_id(self, table_id: str):
+    def validate_table_id(self, table_id: str) -> bool:
         pass
 
     @abc.abstractmethod
-    def validate_item_ids(self, item_ids: List[str]):
+    def validate_item_objs(self, item_ids: List[str]) -> List[ItemDTO]:
         pass
 
     @abc.abstractmethod
-    def create_order(self, item_ids: List[str]):
+    def create_order(self, item_ids: List[str], amount: float) -> str:
         pass
 
     @abc.abstractmethod
