@@ -19,14 +19,12 @@ class TestAddUserDetailsSuccessResponse:
             first_name='Tony',
             last_name='Stark',
             mobile_number='9999877980',
-            email='tony.stark@hotmail.com',
         )
 
     def test_add_user_details_success_response(self, presenter, user_details_dto):
         # Arrange
 
         expected_response = {
-            'email': 'tony.stark@hotmail.com',
             'first_name': 'Tony',
             'last_name': 'Stark',
             'mobile_number': '9999877980',
