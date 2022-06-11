@@ -13,7 +13,9 @@ class UserStorageImplementation(UserStorageInterface):
         return User.objects.filter(mobile_number=mobile_number).exists()
 
     def check_username_already_exists(self, username: str) -> bool:
-        pass
+        from restaurant.models import User
+
+        return User.objects.filter(username=username).exists()
 
     def add_user(self, user_details_dto: AddUserDetailsDTO):
         pass
