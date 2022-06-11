@@ -1,5 +1,6 @@
 import factory
 import factory.fuzzy
+
 from restaurant.models import User
 
 

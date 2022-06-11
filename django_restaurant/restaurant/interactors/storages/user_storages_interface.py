@@ -1,6 +1,6 @@
 import abc
 
-from restaurant.interactors.storages.dtos import AddUserDetailsDTO
+from restaurant.interactors.storages.dtos import AddUserDetailsDTO, UserDetailsDTO
 
 
 class UserStorageInterface(abc.ABC):
@@ -10,7 +10,11 @@ class UserStorageInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def is_email_already_registered(self, email: str) -> bool:
+    def is_mobile_number_already_registered(self, mobile_number: str):
+        pass
+
+    @abc.abstractmethod
+    def check_username_already_exists(self, username: str) -> bool:
         pass
 
     @abc.abstractmethod
@@ -18,5 +22,5 @@ class UserStorageInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_user(self, user_id):
+    def get_user(self, user_id) -> UserDetailsDTO:
         pass
