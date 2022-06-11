@@ -24,3 +24,9 @@ class AddUserDetailsDTO(UserDTO):
     date_joined: Optional[str] = ''
     last_name: Optional[str] = None
     mobile_number: Optional[str] = None
+
+
+@dataclass
+class LoginUserDTO:
+    username: str
+    password: str
