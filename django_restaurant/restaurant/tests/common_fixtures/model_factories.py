@@ -14,4 +14,3 @@ class UserModelFactory(factory.django.DjangoModelFactory):
     username = factory.LazyAttribute(lambda o: o.first_name.lower())
     date_joined = factory.Faker('date_time')
     mobile_number = factory.Sequence(lambda n: '9676767%03d' % n)
-    is_removed = False

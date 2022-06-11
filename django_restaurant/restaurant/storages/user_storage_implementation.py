@@ -8,7 +8,9 @@ class UserStorageImplementation(UserStorageInterface):
         pass
 
     def is_mobile_number_already_registered(self, mobile_number: str):
-        pass
+        from restaurant.models import User
+
+        return User.objects.filter(mobile_number=mobile_number).exists()
 
     def check_username_already_exists(self, username: str) -> bool:
         pass
