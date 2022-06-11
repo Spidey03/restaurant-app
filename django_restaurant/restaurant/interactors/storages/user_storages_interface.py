@@ -24,3 +24,7 @@ class UserStorageInterface(abc.ABC):
     @abc.abstractmethod
     def get_user(self, user_id) -> UserDetailsDTO:
         pass
+
+    @abc.abstractmethod
+    def authenticate_user(self, user_dto):
+        pass
