@@ -3,9 +3,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
-@login_required()
+@login_required
 @api_view(['GET'])
-def get_order(request, order_id):
+def get_order(request):
     from restaurant.storages.restaurant_storage_implementation import RestaurantStorageImplementation
     from restaurant.storages.user_storage_implementation import UserStorageImplementation
     from restaurant.interactors.get_order_details import GetOrderInteractor
@@ -15,7 +15,8 @@ def get_order(request, order_id):
     user_storage = UserStorageImplementation()
     presenter = PresenterImplementation()
 
-    user_id = request.user.id
+    user_id = str(request.user.id)
+    order_id = request.data.get('order_id')
 
     interactor = GetOrderInteractor(
         restaurant_storage=restaurant_storage,

@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
-@login_required()
+@login_required
 @api_view(['POST'])
 def add_order(request):
     from restaurant.storages.restaurant_storage_implementation import RestaurantStorageImplementation

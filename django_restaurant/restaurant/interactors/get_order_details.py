@@ -1,7 +1,7 @@
 from typing import List, Tuple
 
 from restaurant.exceptions.exceptions import NoItemsHaveSelectedException, OrderNotFoundException, \
-    UserDonnotHaveAccessException
+    UserDonNotHaveAccessException
 from restaurant.interactors.presenters.presenter_interface import PresenterInterface
 from restaurant.interactors.storages.dtos import OrderDTO, ItemDTO, UserDetailsDTO
 from restaurant.interactors.storages.restaurant_storage_interface import RestaurantStorageInterface
@@ -29,7 +29,7 @@ class GetOrderInteractor:
             )
         except OrderNotFoundException as e:
             return presenter.order_not_found(order_id=e.order_id)
-        except UserDonnotHaveAccessException as item_exc:
+        except UserDonNotHaveAccessException as item_exc:
             return presenter.user_dont_have_access()
         except NoItemsHaveSelectedException:
             return presenter.no_items_selected_response()
@@ -39,7 +39,7 @@ class GetOrderInteractor:
             raise OrderNotFoundException(order_id=order_id)
         table_order_dto = self.restaurant_storage.get_table_order(order_id=order_id)
         if not (user_id == table_order_dto.user_id or self.user_storage.is_user_admin(user_id=user_id)):
-            raise UserDonnotHaveAccessException()
+            raise UserDonNotHaveAccessException()
 
         user_dto = self.user_storage.get_user(user_id=user_id)
         order_dto = self.restaurant_storage.get_order(order_id=order_id)
