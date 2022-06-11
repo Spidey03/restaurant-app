@@ -6,3 +6,6 @@ class Item(models.Model):
     description = models.TextField(null=True, blank=True)
     name = models.CharField(max_length=50)
     price = models.FloatField(null=False)
+
+    def __str__(self):
+        return self.id

@@ -43,4 +43,11 @@ class RestaurantStorageImplementation(RestaurantStorageInterface):
     def create_table_order(
             self, table_id: str, user_id: str, order_id: str
     ):
-        pass
+        from restaurant.models import TableOrder
+        import uuid
+        TableOrder.objects.create(
+            id=uuid.uuid4(),
+            table_id_id=table_id,
+            user_id_id=user_id,
+            order_id_id=order_id
+        )
