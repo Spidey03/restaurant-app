@@ -1,8 +1,9 @@
 import datetime
-from unittest.mock import create_autospec, Mock
+from unittest.mock import create_autospec, Mock, patch
 
 import pytest
 
+from common.services.oauth2_service import Oauth2Service
 from common.storage_implementation.dtos import UserAuthTokensDTO
 from restaurant.tests.common_fixtures.reset_sequence import reset
 
@@ -77,10 +78,8 @@ class TestGetSiteDetailsBulkInteractor:
             self, user_storage, presenter, interactor, login_user_dto
     ):
         # Arrange
-        USER_ID = 'f2c8cf25-10fe-4ce6-ba8b-1ab5fd355339'
-
         user_storage.check_username_already_exists.return_value = True
-        user_storage.authenticate_user.return_value = None, False
+        user_storage.authenticate_user.return_value = (None, False)
         presenter.username_not_found_response = Mock()
 
         # Act
@@ -97,14 +96,15 @@ class TestGetSiteDetailsBulkInteractor:
         )
         presenter.login_failed_response.assert_called_once()
 
-    def test_when_login_successful(
+    @patch.object(Oauth2Service, 'create_auth_tokens', return_value=token_dto)
+    def when_login_successful(
             self, user_storage, presenter, interactor, login_user_dto
     ):
         # Arrange
         USER_ID = 'f2c8cf25-10fe-4ce6-ba8b-1ab5fd355339'
 
         user_storage.check_username_already_exists.return_value = True
-        user_storage.authenticate_user.return_value = USER_ID, True
+        user_storage.authenticate_user.return_value = (USER_ID, True)
         presenter.username_not_found_response = Mock()
 
         # Act
@@ -119,4 +119,4 @@ class TestGetSiteDetailsBulkInteractor:
         user_storage.authenticate_user.assert_called_once_with(
             user_dto=login_user_dto
         )
-        presenter.login_failed_response.assert_called_once()
+        presenter.login_successful.assert_called_once_with(auth_token_dto=token_dto)

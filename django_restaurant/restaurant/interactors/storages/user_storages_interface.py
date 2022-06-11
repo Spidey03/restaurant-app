@@ -1,4 +1,5 @@
 import abc
+from typing import Union
 
 from restaurant.interactors.storages.dtos import AddUserDetailsDTO, UserDetailsDTO
 
@@ -26,5 +27,5 @@ class UserStorageInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def authenticate_user(self, user_dto):
+    def authenticate_user(self, user_dto) -> (Union[str, None], bool):
         pass

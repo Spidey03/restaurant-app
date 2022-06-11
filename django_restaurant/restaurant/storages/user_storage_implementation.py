@@ -1,3 +1,5 @@
+from typing import Union
+
 from restaurant.interactors.storages.dtos import AddUserDetailsDTO, UserDetailsDTO
 from restaurant.interactors.storages.user_storages_interface import UserStorageInterface
 
@@ -64,3 +66,6 @@ class UserStorageImplementation(UserStorageInterface):
             date_joined=str(user_details.date_joined.replace(tzinfo=None)),
         )
         return user_dto
+
+    def authenticate_user(self, user_dto) -> (Union[str, None], bool):
+        pass

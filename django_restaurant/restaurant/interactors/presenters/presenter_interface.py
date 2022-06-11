@@ -26,3 +26,7 @@ class PresenterInterface(abc.ABC):
     @abc.abstractmethod
     def login_failed_response(self):
         pass
+
+    @abc.abstractmethod
+    def login_successful(self, auth_token_dto):
+        pass
