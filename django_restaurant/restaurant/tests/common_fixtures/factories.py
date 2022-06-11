@@ -4,7 +4,7 @@ from restaurant.interactors.storages.dtos import (
     UserDetailsDTO,
     UserDTO,
     AddUserDetailsDTO,
-    LoginUserDTO
+    LoginUserDTO, ItemDTO
 )
 
 
@@ -44,3 +44,13 @@ class LoginUserDTOFactory(factory.Factory):
 
     username = factory.Faker('name')
     password = factory.Sequence(lambda n: 'password%d' % n)
+
+
+class ItemDTOFactory(factory.Factory):
+    class Meta:
+        model = ItemDTO
+
+    id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    name = factory.Sequence(lambda n: 'Item %d' % n)
+    price = 3000
+    description = ''
