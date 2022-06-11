@@ -37,3 +37,19 @@ class PresenterInterface(abc.ABC):
     @abc.abstractmethod
     def get_menu_items_response(self, menu_items_dto_list: List[ItemDTO]):
         pass
+
+    @abc.abstractmethod
+    def order_created_successfully(self, order_id: str):
+        pass
+
+    @abc.abstractmethod
+    def table_not_found_response(self, table_id: str):
+        pass
+
+    @abc.abstractmethod
+    def items_not_found(self, item_ids: List[str]):
+        pass
+
+    @abc.abstractmethod
+    def no_items_selected_response(self):
+        pass

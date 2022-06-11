@@ -31,3 +31,23 @@ LOGIN_FAILED = (
     'Either username or password are incorrect',
     'LOGIN_FAILED',
 )
+
+ORDER_CREATE_SUCCESSFULLY = (
+    "We've recieved order, please be patient we'll serve to you soon, order_id: {}",
+    'ORDER_CREATE_SUCCESSFULLY',
+)
+
+TABLE_NOT_FOUND = (
+    "Table not found: {}",
+    'TABLE_NOT_FOUND',
+)
+
+SELECTED_ITEMS_NOT_FOUND = (
+    "Items not found: {}",
+    'SELECTED_ITEMS_NOT_FOUND',
+)
+
+NO_ITEMS_SELECTED = (
+    "Please select atleast one item",
+    'NO_ITEMS_SELECTED',
+)

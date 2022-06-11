@@ -92,3 +92,51 @@ class PresenterImplementation(PresenterInterface):
                 'price': item.price
             } for item in menu_items_dto_list
         ]
+
+    def order_created_successfully(self, order_id: str):
+        from restaurant.constants.exception_message import ORDER_CREATE_SUCCESSFULLY
+
+        response = ORDER_CREATE_SUCCESSFULLY[0].format(order_id)
+        res_status = ORDER_CREATE_SUCCESSFULLY[1]
+        http_status_code = StatusCode.Created_Success.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }
+
+    def table_not_found_response(self, table_id: str):
+        from restaurant.constants.exception_message import TABLE_NOT_FOUND
+
+        response = TABLE_NOT_FOUND[0].format(table_id)
+        res_status = TABLE_NOT_FOUND[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }
+
+    def items_not_found(self, item_ids: List[str]):
+        from restaurant.constants.exception_message import SELECTED_ITEMS_NOT_FOUND
+
+        response = SELECTED_ITEMS_NOT_FOUND[0].format(item_ids)
+        res_status = SELECTED_ITEMS_NOT_FOUND[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }
+
+    def no_items_selected_response(self):
+        from restaurant.constants.exception_message import NO_ITEMS_SELECTED
+
+        response = NO_ITEMS_SELECTED[0]
+        res_status = NO_ITEMS_SELECTED[1]
+        http_status_code = StatusCode.BadRequest.value
+        return {
+            'response': response,
+            'res_status': res_status,
+            'status_code': http_status_code,
+        }

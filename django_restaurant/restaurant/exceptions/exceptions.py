@@ -1,3 +1,6 @@
+from typing import List
+
+
 class UserNotFoundException(Exception):
     pass
 
@@ -26,4 +29,16 @@ class UsernameNotFoundException(Exception):
 
 
 class LoginFailedException(Exception):
+    pass
+
+
+class TableNotFoundException(Exception):
+    pass
+
+
+class ItemIdNotFoundException(Exception):
+    def __init__(self, item_ids: List[str]):
+        self.item_ids = item_ids
+
+class NoItemsHaveSelectedException(Exception):
     pass

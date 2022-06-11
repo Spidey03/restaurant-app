@@ -13,7 +13,7 @@ class Table(models.Model):
     )
 
     def __str__(self):
-        return {self.id}
+        return f"Table {self.id}"
 
 
 class TableCart(models.Model):
@@ -31,6 +31,9 @@ class TableCart(models.Model):
         on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        return str(self.id)
+
 
 class TableOrder(models.Model):
     id = models.UUIDField(primary_key=True)
@@ -46,3 +49,6 @@ class TableOrder(models.Model):
         Order, null=True, blank=False,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return str(self.id)
