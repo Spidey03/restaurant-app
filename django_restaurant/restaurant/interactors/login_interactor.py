@@ -16,11 +16,11 @@ class LoginInteractor(ValidationMixin):
     ):
         try:
             token_dto = self._login_user(login_user_dto=login_user_dto)
-            presenter.login_successful_response(auth_token_dto=token_dto)
+            return presenter.login_successful_response(auth_token_dto=token_dto)
         except UsernameNotFoundException:
-            presenter.username_not_found_response(username=login_user_dto.username)
+            return presenter.username_not_found_response(username=login_user_dto.username)
         except LoginFailedException:
-            presenter.login_failed_response()
+            return presenter.login_failed_response()
 
     def _login_user(self, login_user_dto: LoginUserDTO):
         username_not_found = not self.check_username_exists(
