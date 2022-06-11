@@ -28,9 +28,7 @@ class LoginInteractor(ValidationMixin):
         )
         if username_not_found:
             raise UsernameNotFoundException()
-        val = self.user_storage.authenticate_user(user_dto=login_user_dto)
-        print(val)
-        user_id, authenticated = val
+        user_id, authenticated = self.user_storage.authenticate_user(user_dto=login_user_dto)
 
         if not authenticated:
             raise LoginFailedException()

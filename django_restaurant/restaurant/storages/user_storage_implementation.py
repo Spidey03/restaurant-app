@@ -68,4 +68,15 @@ class UserStorageImplementation(UserStorageInterface):
         return user_dto
 
     def authenticate_user(self, user_dto) -> (Union[str, None], bool):
-        pass
+        from restaurant.models import User
+
+        user = User.objects.get(username=user_dto.username)
+        is_authenticated = user.check_password(raw_password=user_dto.password)
+        user_id = str(user.id)
+
+        # set active status to True
+        if is_authenticated:
+            user.is_active = True
+        user.save()
+
+        return user_id, is_authenticated
