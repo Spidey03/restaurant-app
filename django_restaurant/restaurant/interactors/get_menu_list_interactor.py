@@ -12,7 +12,7 @@ class GetMenuInteractor:
     def get_menu_wrapper(self, presenter: PresenterInterface):
         menu_items_dto = self._get_menu()
         return presenter.get_menu_items_response(
-            menu_items_dto=menu_items_dto
+            menu_items_dto_list=menu_items_dto
         )
 
     def _get_menu(self) -> List[ItemDTO]:
