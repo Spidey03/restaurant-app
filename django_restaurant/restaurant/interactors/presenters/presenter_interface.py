@@ -1,4 +1,7 @@
 import abc
+from typing import List
+
+from restaurant.interactors.storages.dtos import ItemDTO
 
 
 class PresenterInterface(abc.ABC):
@@ -32,5 +35,5 @@ class PresenterInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_menu_items_response(self, menu_items_dto):
+    def get_menu_items_response(self, menu_items_dto_list: List[ItemDTO]):
         pass
