@@ -92,3 +92,12 @@ class PresenterImplementation(PresenterInterface):
                 'price': item.price
             } for item in menu_items_dto_list
         ]
+
+    def order_created_successfully(self, order_id: str):
+        pass
+
+    def table_not_found_response(self, table_id: str):
+        pass
+
+    def items_not_found(self, item_ids: List[str]):
+        pass

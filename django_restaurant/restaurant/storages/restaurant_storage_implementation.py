@@ -18,3 +18,17 @@ class RestaurantStorageImplementation(RestaurantStorageInterface):
                 description=item_obj.description,
             ) for item_obj in item_objs
         ]
+
+    def validate_table_id(self, table_id):
+        pass
+
+    def validate_item_ids(self, item_ids):
+        pass
+
+    def create_order(self, item_ids):
+        pass
+
+    def create_table_order(
+            self, table_id: str, user_id: str, order_id: str
+    ):
+        pass
