@@ -48,5 +48,5 @@ class TestGetSiteDetailsBulkInteractor:
         # Assert
         restaurant_storage.get_menu_items.assert_called_once()
         presenter.get_menu_items_response.assert_called_once_with(
-            menu_items_dto=menu_items_dto_list
+            menu_items_dto_list=menu_items_dto_list
         )
