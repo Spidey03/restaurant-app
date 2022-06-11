@@ -28,5 +28,5 @@ class PresenterInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def login_successful(self, auth_token_dto):
+    def login_successful_response(self, auth_token_dto):
         pass

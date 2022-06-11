@@ -16,7 +16,7 @@ class LoginInteractor(ValidationMixin):
     ):
         try:
             token_dto = self._login_user(login_user_dto=login_user_dto)
-            presenter.login_successful(auth_token_dto=token_dto)
+            presenter.login_successful_response(auth_token_dto=token_dto)
         except UsernameNotFoundException:
             presenter.username_not_found_response(username=login_user_dto.username)
         except LoginFailedException:

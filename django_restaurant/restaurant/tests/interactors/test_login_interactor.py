@@ -119,4 +119,4 @@ class TestGetSiteDetailsBulkInteractor:
         user_storage.authenticate_user.assert_called_once_with(
             user_dto=login_user_dto
         )
-        presenter.login_successful.assert_called_once_with(auth_token_dto=token_dto)
+        presenter.login_successful_response.assert_called_once_with(auth_token_dto=token_dto)
