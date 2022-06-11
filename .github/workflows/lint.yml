@@ -20,4 +20,4 @@ jobs:
         pip install black
     - name: Run linter
       run : |
-        black . --skip-string-normalization --color
+        black django_restaurant/ --skip-string-normalization --color
