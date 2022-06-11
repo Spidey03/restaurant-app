@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'restaurant'
 ]
+
+THIRD_PARTY_APPS = ['oauth2_provider', 'corsheaders']
+INSTALLED_APPS += THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'django_restaurant.urls'
@@ -121,3 +127,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = [
+    'oauth2_provider.backends.OAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+AUTH_USER_MODEL = 'restaurant.User'
+
+DEFAULT_OAUTH_APPLICATION_NAME = 'restaurant'
+DEFAULT_OAUTH_CLIENT_ID = ''
+DEFAULT_OAUTH_SECRET_KEY = ''
+DEFAULT_OAUTH_SCOPES = 'read write'
+DEFAULT_ACCESS_TOKEN_EXPIRY_TIME = 3600
