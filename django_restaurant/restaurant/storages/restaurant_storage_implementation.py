@@ -19,13 +19,14 @@ class RestaurantStorageImplementation(RestaurantStorageInterface):
             ) for item_obj in item_objs
         ]
 
-    def validate_table_id(self, table_id):
+    def validate_table_id(self, table_id: str):
+        from restaurant.models import Table
+        return Table.objects.filter(id=table_id).exists()
+
+    def validate_item_ids(self, item_ids: List[str]):
         pass
 
-    def validate_item_ids(self, item_ids):
-        pass
-
-    def create_order(self, item_ids):
+    def create_order(self, item_ids: List[str]):
         pass
 
     def create_table_order(

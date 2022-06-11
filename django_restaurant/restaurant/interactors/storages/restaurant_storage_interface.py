@@ -11,15 +11,15 @@ class RestaurantStorageInterface(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def validate_table_id(self, table_id):
+    def validate_table_id(self, table_id: str):
         pass
 
     @abc.abstractmethod
-    def validate_item_ids(self, item_ids):
+    def validate_item_ids(self, item_ids: List[str]):
         pass
 
     @abc.abstractmethod
-    def create_order(self, item_ids):
+    def create_order(self, item_ids: List[str]):
         pass
 
     @abc.abstractmethod

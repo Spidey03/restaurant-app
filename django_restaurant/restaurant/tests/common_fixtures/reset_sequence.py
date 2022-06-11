@@ -5,11 +5,13 @@ def reset():
 
 def reset_model_factories():
     from restaurant.tests.common_fixtures.model_factories import (
-        UserModelFactory, ItemModelFactory
+        UserModelFactory, ItemModelFactory, TableModelFactory, RestaurantModelFactory
     )
 
     UserModelFactory.reset_sequence(0)
     ItemModelFactory.reset_sequence(0)
+    RestaurantModelFactory.reset_sequence(0)
+    TableModelFactory.reset_sequence(0)
 
 
 def reset_dto_factories():
