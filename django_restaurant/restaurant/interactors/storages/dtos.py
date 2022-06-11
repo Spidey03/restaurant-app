@@ -30,3 +30,11 @@ class AddUserDetailsDTO(UserDTO):
 class LoginUserDTO:
     username: str
     password: str
+
+
+@dataclass
+class ItemDTO:
+    id: str
+    name: str
+    price: float
+    description: Optional[str] = ''

@@ -1,6 +1,8 @@
+from typing import List
+
 from restaurant.constants.constants import StatusCode
 from restaurant.interactors.presenters.presenter_interface import PresenterInterface
-from restaurant.interactors.storages.dtos import UserDetailsDTO
+from restaurant.interactors.storages.dtos import UserDetailsDTO, ItemDTO
 
 
 class PresenterImplementation(PresenterInterface):
@@ -80,3 +82,13 @@ class PresenterImplementation(PresenterInterface):
             'refresh_token': auth_token_dto.refresh_token,
             'expires': auth_token_dto.expires,
         }
+
+    def get_menu_items_response(self, menu_items_dto_list: List[ItemDTO]):
+        return [
+            {
+                'id': item.id,
+                'name': item.name,
+                'description': item.description,
+                'price': item.price
+            } for item in menu_items_dto_list
+        ]
