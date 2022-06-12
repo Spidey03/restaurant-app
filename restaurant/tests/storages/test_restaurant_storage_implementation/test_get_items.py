@@ -30,4 +30,4 @@ class TestGetItems:
         response = storage.get_items(item_ids=item_ids)
 
         # Assert
-        assert len(response) is 2
+        assert len(response) is len(item_ids)

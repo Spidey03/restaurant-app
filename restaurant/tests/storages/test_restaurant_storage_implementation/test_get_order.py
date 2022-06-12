@@ -28,4 +28,3 @@ class TestGetOrder:
 
         # Assert
         assert response.id == order_id
-        assert len(response.items) is 0
