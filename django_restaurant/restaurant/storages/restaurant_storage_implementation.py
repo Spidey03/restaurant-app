@@ -80,3 +80,12 @@ class RestaurantStorageImplementation(RestaurantStorageInterface):
     def check_order_id_exist(self, order_id: str) -> bool:
         from restaurant.models import Order
         return Order.objects.filter(id=order_id).exists()
+
+    def update_order(self, order_id, item_ids, amount):
+        from restaurant.models import Order
+
+        Order.objects.filter(id=order_id).update(amount=amount)
+        order = Order.objects.get(id=order_id)
+        order.items.set(item_ids)
+        order.save()
+        return str(order.id)

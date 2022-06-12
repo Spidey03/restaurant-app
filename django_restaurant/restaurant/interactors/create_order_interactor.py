@@ -6,20 +6,20 @@ from restaurant.interactors.presenters.presenter_interface import PresenterInter
 from restaurant.interactors.storages.restaurant_storage_interface import RestaurantStorageInterface
 
 
-class CreateOrderInteractor:
+class CreateUpdateOrderInteractor:
     def __init__(
         self,
         restaurant_storage: RestaurantStorageInterface
     ):
         self.restaurant_storage = restaurant_storage
 
-    def create_order_wrapper(
-        self, user_id: str, table_id: str,
+    def create_update_order_wrapper(
+        self, user_id: str, table_id: str, order_id: str,
         items: List[str], presenter: PresenterInterface
     ):
         try:
             order_id = self._create_order(
-                user_id=user_id, table_id=table_id, items=items
+                user_id=user_id, table_id=table_id, items=items, order_id=order_id
             )
             return presenter.order_created_successfully(order_id=order_id)
         except TableNotFoundException:
@@ -29,7 +29,7 @@ class CreateOrderInteractor:
         except NoItemsHaveSelectedException:
             return presenter.no_items_selected_response()
 
-    def _create_order(self, user_id: str, table_id: str, items: List[str]):
+    def _create_order(self, user_id: str, table_id: str, items: List[str], order_id: str):
         if not items:
             raise NoItemsHaveSelectedException()
         if not self.restaurant_storage.validate_table_id(table_id=table_id):
@@ -44,8 +44,15 @@ class CreateOrderInteractor:
         invalid_item_ids = list(set(items) - set(valid_item_ids))
         if invalid_item_ids:
             raise ItemIdNotFoundException(item_ids=invalid_item_ids)
-        order_id = self.restaurant_storage.create_order(item_ids=items, amount=amount)
-        self.restaurant_storage.create_table_order(
-            table_id=table_id, user_id=user_id, order_id=order_id
-        )
+        if order_id and self.restaurant_storage.check_order_id_exist(order_id=order_id):
+            self.restaurant_storage.update_order(
+                order_id=order_id, item_ids=items, amount=amount
+            )
+        else:
+            order_id = self.restaurant_storage.create_order(
+                item_ids=items, amount=amount
+            )
+            self.restaurant_storage.create_table_order(
+                table_id=table_id, user_id=user_id, order_id=order_id
+            )
         return order_id

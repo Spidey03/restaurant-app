@@ -43,3 +43,7 @@ class RestaurantStorageInterface(abc.ABC):
     @abc.abstractmethod
     def check_order_id_exist(self, order_id: str) -> bool:
         pass
+
+    @abc.abstractmethod
+    def update_order(self, order_id, item_ids, amount):
+        pass
