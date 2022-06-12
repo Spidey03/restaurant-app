@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fcec03f5-95f1-470d-a537-90ea4b01c304" name="Changes" comment="Edit order">
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/services/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/services/oauth2_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/storage_implementation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/storage_implementation/dtos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/common/storage_implementation/oauth2_storage_implementation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/django_restaurant/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/django_restaurant/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/django_restaurant/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/django_restaurant/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/django_restaurant/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/pytest.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/constants/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/constants/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/constants/exception_message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/exceptions/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/exceptions/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/create_order_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/dtos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/get_menu_list_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/get_order_details.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/login_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/presenters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/presenters/presenter_interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/sign_up_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/storages/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/storages/dtos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/storages/restaurant_storage_interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/storages/user_storages_interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/interactors/validation_mixin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/migrations/0002_item_description_item_price.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/migrations/0003_rename_cart_id_tablecart_cart_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/item.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/restaurant.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/models/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/presenters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/presenters/presenter_implementation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/serializers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/serializers/user_serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/storages/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/storages/restaurant_storage_implementation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/storages/user_storage_implementation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/common_fixtures/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/common_fixtures/factories.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/common_fixtures/model_factories.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/common_fixtures/reset_sequence.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/test_add_user_details_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/test_create_order_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/test_get_menu_list_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/test_get_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/interactors/test_login_interactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_add_user_details_success_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_get_menu_items_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_get_order_success_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_items_not_found_respones.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_mobile_number_already_registered_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_no_items_selected.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_order_not_found.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_table_not_found_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_user_dont_have_permission.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_username_already_taken_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_username_not_found_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/test_weak_password_exception_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/tets_login_failed_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/tets_login_successful_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/presenters/tets_order_created_successful_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_check_order_id_exist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_create_order_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_create_table_order_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_menu_items_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_table_order_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_validate_item_ids_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_restaurant_storage_implementation/test_validate_table_id_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_add_user_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_authenticate_user_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_check_user_exists_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_check_username_already_exists_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_get_user_details_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/tests/storages/test_user_storage_implementation/test_is_mobile_number_already_registered_storage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/add_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/get_menu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/get_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_restaurant/restaurant/views/sign_up.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/components/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/components/Dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/components/notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/hooks/useLocalStorage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_restaurant/src/logo.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Freeze Requirements File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="feature/django-create-order" />
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AQAHVUKqnB0Gvx7b0x4NDCTXTR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant\views" />
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant\tests\presenters" />
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant\tests\interactors" />
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant\tests\storages\test_restaurant_storage_implementation" />
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\hackathon\restaurant-app\django_restaurant\restaurant\tests\storages\test_user_storage_implementation" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Run Server">
+    <configuration name="Run Server" type="PythonConfigurationType" factoryName="Python">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Projects\hackathon\restaurant-app\django_restaurant\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_authenticate_user_storage.TestAuthenticateUser" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/restaurant/tests/storages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_authenticate_user_storage.TestAuthenticateUser&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/restaurant/tests/interactors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_login_interactor.TestGetSiteDetailsBulkInteractor&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_login_successful" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/restaurant/tests/interactors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_login_successful&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_username_not_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/restaurant/tests/interactors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_username_not_found&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for restaurant.tests.presenters" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\naveen\AppData\Local\Programs\Python\Python310\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/restaurant/tests/presenters" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;restaurant.tests.presenters&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in restaurant" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="django_restaurant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\naveen\AppData\Local\Programs\Python\Python310\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/restaurant&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Run Server" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.pytest in restaurant" />
+      <item itemvalue="Python tests.pytest for restaurant.tests.presenters" />
+      <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_username_not_found" />
+      <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor" />
+      <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_login_successful" />
+      <item itemvalue="Python tests.Python tests for test_authenticate_user_storage.TestAuthenticateUser" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_authenticate_user_storage.TestAuthenticateUser" />
+        <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_login_successful" />
+        <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor" />
+        <item itemvalue="Python tests.Python tests for test_login_interactor.TestGetSiteDetailsBulkInteractor.test_when_username_not_found" />
+        <item itemvalue="Python tests.pytest for restaurant.tests.presenters" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcec03f5-95f1-470d-a537-90ea4b01c304" name="Changes" comment="" />
+      <created>1654931350844</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654931350844</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update settings">
+      <created>1654934074366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654934074366</updated>
+    </task>
+    <task id="LOCAL-00012" summary="urls">
+      <created>1654934704422</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654934704422</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add user dtos">
+      <created>1654935460882</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654935460882</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add requirements">
+      <created>1654935472234</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654935472234</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add fixtures">
+      <created>1654936766350</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1654936766350</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add exception classes">
+      <created>1654936801212</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1654936801212</updated>
+    </task>
+    <task id="LOCAL-00017" summary="user serializer">
+      <created>1654936831498</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1654936831498</updated>
+    </task>
+    <task id="LOCAL-00018" summary="common module authentication">
+      <created>1654936899189</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1654936899189</updated>
+    </task>
+    <task id="LOCAL-00019" summary="User &amp; Presenter interfaces">
+      <created>1654937357391</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1654937357391</updated>
+    </task>
+    <task id="LOCAL-00020" summary="django pytest config">
+      <created>1654943324739</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943324739</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add Model migration">
+      <created>1654943341508</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943341508</updated>
+    </task>
+    <task id="LOCAL-00022" summary="urls">
+      <created>1654943351287</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943351287</updated>
+    </task>
+    <task id="LOCAL-00023" summary="models">
+      <created>1654943366016</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943366016</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Login user interactor implementation &amp; Tests">
+      <created>1654943396248</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943396248</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Login View">
+      <created>1654943453496</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943453496</updated>
+    </task>
+    <task id="LOCAL-00026" summary="user storage implementation">
+      <created>1654943660051</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943660051</updated>
+    </task>
+    <task id="LOCAL-00027" summary="user storage is mobile number registered">
+      <created>1654943720759</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943720759</updated>
+    </task>
+    <task id="LOCAL-00028" summary="test: username exist already">
+      <created>1654943932194</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1654943932194</updated>
+    </task>
+    <task id="LOCAL-00029" summary="test: add user storage">
+      <created>1654944120594</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1654944120594</updated>
+    </task>
+    <task id="LOCAL-00030" summary="test: check user exist storage">
+      <created>1654944409788</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1654944409789</updated>
+    </task>
+    <task id="LOCAL-00031" summary="test: get user details storage">
+      <created>1654944820915</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1654944820915</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Presenter implementation &amp; Tests">
+      <created>1654945029598</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1654945029598</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Presenter implementation &amp; tests">
+      <created>1654945739461</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1654945739461</updated>
+    </task>
+    <task id="LOCAL-00034" summary="CI CD workflows">
+      <created>1654946027094</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1654946027094</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Update parmas in workflows">
+      <created>1654946241068</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1654946241068</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Login Interactor">
+      <created>1654947647754</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1654947647754</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Test Login Interactor::Failed">
+      <created>1654948395615</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1654948395615</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Test Login Interactor:: Success">
+      <created>1654949104798</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1654949104798</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Test storages">
+      <created>1654949586563</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1654949586563</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Test Presenters for Login">
+      <created>1654950315700</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1654950315700</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Login User View">
+      <created>1654950685912</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1654950685912</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Fix: Login User &#10;Update admin panel for user model">
+      <created>1654951300684</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1654951300684</updated>
+    </task>
+    <task id="LOCAL-00043" summary="update requirements">
+      <created>1654952293215</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1654952293215</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Get Menu Items Interactor &amp; Tests">
+      <created>1654954361029</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1654954361029</updated>
+    </task>
+    <task id="LOCAL-00045" summary="new field for item">
+      <created>1654954727865</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1654954727865</updated>
+    </task>
+    <task id="LOCAL-00046" summary="move user tests">
+      <created>1654955248703</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1654955248703</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Get Menu Items Storage tests">
+      <created>1654955264087</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1654955264087</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Get Menu Items Presenter tests">
+      <created>1654955606912</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1654955606912</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Get Menu Items View">
+      <created>1654956106654</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1654956106654</updated>
+    </task>
+    <task id="LOCAL-00050" summary="fix: tests">
+      <created>1654956157474</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1654956157475</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Create Order Interactor">
+      <created>1654958238920</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1654958238920</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Create Order Storage">
+      <created>1654958764621</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1654958764621</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Create Order Storage partial">
+      <created>1654961945983</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1654961945983</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Create Order Storage">
+      <created>1654962978781</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1654962978781</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Presenter tests">
+      <created>1654963599498</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1654963599498</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Place Order">
+      <created>1654966735779</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1654966735779</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Get Order">
+      <created>1654986785842</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1654986785842</updated>
+    </task>
+    <task id="LOCAL-00058" summary="update settings">
+      <created>1654989964619</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1654989964619</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Edit order">
+      <created>1654992332118</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1654992332118</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CI CD workflows" />
+    <MESSAGE value="Update parmas in workflows" />
+    <MESSAGE value="Login Interactor" />
+    <MESSAGE value="Test Login Interactor::Failed" />
+    <MESSAGE value="Test Login Interactor:: Success" />
+    <MESSAGE value="Test storages" />
+    <MESSAGE value="Test Presenters for Login" />
+    <MESSAGE value="Login User View" />
+    <MESSAGE value="Fix: Login User &#10;Update admin panel for user model" />
+    <MESSAGE value="update requirements" />
+    <MESSAGE value="Get Menu Items Interactor &amp; Tests" />
+    <MESSAGE value="new field for item" />
+    <MESSAGE value="move user tests" />
+    <MESSAGE value="Get Menu Items Storage tests" />
+    <MESSAGE value="Get Menu Items Presenter tests" />
+    <MESSAGE value="Get Menu Items View" />
+    <MESSAGE value="fix: tests" />
+    <MESSAGE value="Create Order Interactor" />
+    <MESSAGE value="Create Order Storage partial" />
+    <MESSAGE value="Create Order Storage" />
+    <MESSAGE value="Presenter tests" />
+    <MESSAGE value="Place Order" />
+    <MESSAGE value="Get Order" />
+    <MESSAGE value="update settings" />
+    <MESSAGE value="Edit order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit order" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_items.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/tests/storages/test_restaurant_storage_implementation/test_get_order.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/restaurant/interactors/get_order_details.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
