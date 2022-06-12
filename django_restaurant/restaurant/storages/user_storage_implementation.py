@@ -80,3 +80,8 @@ class UserStorageImplementation(UserStorageInterface):
         user.save()
 
         return user_id, is_authenticated
+
+    def is_user_admin(self, user_id: str) -> bool:
+        from restaurant.models import User
+        user_obj = User.objects.get(id=user_id)
+        return user_obj.is_staff

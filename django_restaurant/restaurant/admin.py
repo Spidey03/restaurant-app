@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from restaurant.models import User, Item, Table, Order, Restaurant
+from restaurant.models import User, Item, Table, Order, Restaurant, TableOrder
 
 
 @admin.register(User)
@@ -45,10 +45,16 @@ class TableAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     pass
 
+
 class RestaurantAdmin(admin.ModelAdmin):
+    pass
+
+
+class TableOrderAdmin(admin.ModelAdmin):
     pass
 
 
 admin.site.register(Table, TableAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
+admin.site.register(TableOrder, TableOrderAdmin)

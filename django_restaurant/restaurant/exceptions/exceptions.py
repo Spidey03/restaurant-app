@@ -40,5 +40,15 @@ class ItemIdNotFoundException(Exception):
     def __init__(self, item_ids: List[str]):
         self.item_ids = item_ids
 
+
 class NoItemsHaveSelectedException(Exception):
+    pass
+
+
+class OrderNotFoundException(Exception):
+    def __init__(self, order_id: str):
+        self.order_id = order_id
+
+
+class UserDonNotHaveAccessException(Exception):
     pass

@@ -4,7 +4,7 @@ from restaurant.interactors.storages.dtos import (
     UserDetailsDTO,
     UserDTO,
     AddUserDetailsDTO,
-    LoginUserDTO, ItemDTO
+    LoginUserDTO, ItemDTO, TableOrderDTO, OrderDTO
 )
 
 
@@ -54,3 +54,23 @@ class ItemDTOFactory(factory.Factory):
     name = factory.Sequence(lambda n: 'Item %d' % n)
     price = 3000
     description = ''
+
+
+class TableOrderDTOFactory(factory.Factory):
+    class Meta:
+        model = TableOrderDTO
+
+    id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    table_id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    user_id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    order_id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+
+
+class OrderDTOFactory(factory.Factory):
+    class Meta:
+        model = OrderDTO
+
+    id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    is_paid = True
+    items = []
+    amount = 0

@@ -27,8 +27,8 @@ class TestCreateOrderInteractor:
 
     @pytest.fixture
     def interactor(self, restaurant_storage):
-        from restaurant.interactors.create_order_interactor import CreateOrderInteractor
-        return CreateOrderInteractor(
+        from restaurant.interactors.create_order_interactor import CreateUpdateOrderInteractor
+        return CreateUpdateOrderInteractor(
             restaurant_storage=restaurant_storage
         )
 
@@ -52,7 +52,8 @@ class TestCreateOrderInteractor:
         presenter.no_items_selected_response.return_value = Mock()
 
         # Act
-        interactor.create_order_wrapper(
+        interactor.create_update_order_wrapper(
+            order_id='',
             user_id=USER_ID,
             table_id=TABLE_ID,
             items=[],
@@ -70,7 +71,8 @@ class TestCreateOrderInteractor:
         presenter.table_not_found_response.return_value = Mock()
 
         # Act
-        interactor.create_order_wrapper(
+        interactor.create_update_order_wrapper(
+            order_id='',
             user_id=USER_ID,
             table_id=TABLE_ID,
             items=ITEM_IDS,
@@ -92,7 +94,8 @@ class TestCreateOrderInteractor:
         presenter.items_not_found.return_value = Mock()
 
         # Act
-        interactor.create_order_wrapper(
+        interactor.create_update_order_wrapper(
+            order_id='',
             user_id=USER_ID,
             table_id=TABLE_ID,
             items=ITEM_IDS,
@@ -121,7 +124,8 @@ class TestCreateOrderInteractor:
         presenter.order_created_successfully.return_value = Mock()
 
         # Act
-        interactor.create_order_wrapper(
+        interactor.create_update_order_wrapper(
+            order_id='',
             user_id=USER_ID,
             table_id=TABLE_ID,
             items=item_ids,
@@ -134,6 +138,43 @@ class TestCreateOrderInteractor:
         restaurant_storage.create_order.assert_called_once_with(item_ids=item_ids, amount=6000)
         restaurant_storage.create_table_order.assert_called_once_with(
             table_id=TABLE_ID, user_id=USER_ID, order_id=ORDER_ID
+        )
+        presenter.order_created_successfully.assert_called_once_with(
+            order_id=ORDER_ID
+        )
+
+    def test_update_order(
+            self, restaurant_storage, presenter, interactor, item_dtos
+    ):
+        # Arrange
+        ORDER_ID = 'g32b2f96-93f5-4e2f-842d-d590783dc001'
+        item_ids = [
+            'd32b2f96-93f5-4e2f-842d-d590783dc000',
+            'd32b2f96-93f5-4e2f-842d-d590783dc001'
+        ]
+
+        restaurant_storage.validate_table_id.return_value = True
+        restaurant_storage.validate_item_objs.return_value = item_dtos
+        restaurant_storage.check_order_id_exist.return_value = True
+        restaurant_storage.update_order.return_value = ORDER_ID
+        restaurant_storage.create_table_order.return_value = Mock()
+        presenter.order_created_successfully.return_value = Mock()
+
+        # Act
+        interactor.create_update_order_wrapper(
+            order_id=ORDER_ID,
+            user_id=USER_ID,
+            table_id=TABLE_ID,
+            items=item_ids,
+            presenter=presenter
+        )
+
+        # Assert
+        restaurant_storage.validate_table_id.assert_called_once_with(table_id=TABLE_ID)
+        restaurant_storage.validate_item_objs.assert_called_once_with(item_ids=item_ids)
+        restaurant_storage.check_order_id_exist.assert_called_once_with(order_id=ORDER_ID)
+        restaurant_storage.update_order.assert_called_once_with(
+            order_id=ORDER_ID, item_ids=item_ids, amount=6000
         )
         presenter.order_created_successfully.assert_called_once_with(
             order_id=ORDER_ID

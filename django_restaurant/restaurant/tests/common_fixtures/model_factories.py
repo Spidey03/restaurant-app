@@ -1,7 +1,7 @@
 import factory
 import factory.fuzzy
 
-from restaurant.models import User, Item, Table, Restaurant, Order
+from restaurant.models import User, Item, Table, Restaurant, Order, TableOrder
 
 
 class UserModelFactory(factory.django.DjangoModelFactory):
@@ -49,3 +49,13 @@ class OrderModelFactory(factory.django.DjangoModelFactory):
     id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
     is_paid = False
     amount = 3000
+
+
+class TableOrderModelFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = TableOrder
+
+    id = factory.Sequence(lambda n: 'd32b2f96-93f5-4e2f-842d-d590783dc%03d' % n)
+    table = factory.SubFactory(TableModelFactory)
+    user = factory.SubFactory(UserModelFactory)
+    order = factory.SubFactory(OrderModelFactory)

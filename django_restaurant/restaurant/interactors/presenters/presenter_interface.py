@@ -1,7 +1,7 @@
 import abc
 from typing import List
 
-from restaurant.interactors.storages.dtos import ItemDTO
+from restaurant.interactors.storages.dtos import ItemDTO, UserDetailsDTO, OrderDTO
 
 
 class PresenterInterface(abc.ABC):
@@ -52,4 +52,21 @@ class PresenterInterface(abc.ABC):
 
     @abc.abstractmethod
     def no_items_selected_response(self):
+        pass
+
+    @abc.abstractmethod
+    def order_not_found(self, order_id: str):
+        pass
+
+    @abc.abstractmethod
+    def user_dont_have_access(self):
+        pass
+
+    @abc.abstractmethod
+    def get_order_response(
+            self,
+            user_dto: UserDetailsDTO,
+            order_dto: OrderDTO,
+            item_dtos: List[ItemDTO]
+    ):
         pass
